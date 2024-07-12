@@ -4,13 +4,13 @@ jobs:
   build_and_test:
     runs-on: ubuntu-latest
     services:
-      casper-nctl:
-        image: makesoftware/casper-nctl:v156
+      casper-cctl:
+        image: makesoftware/casper-cctl:v156
         ports:
           - 11101:11101
     steps:
       - uses: actions/checkout@v3
-      - name: Test if NCTL is running
+      - name: Test if CCTL is running
         run: >-
           curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
       - name: Check status after 30 seconds

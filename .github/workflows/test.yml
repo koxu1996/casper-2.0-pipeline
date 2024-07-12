@@ -11,6 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Test if NCTL is running
-        run: curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
+        run: >-
+          curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
       - name: Check status after 30 seconds
-        run: curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
+        run: >-
+          curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'

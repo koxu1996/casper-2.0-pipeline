@@ -5,14 +5,14 @@ jobs:
     runs-on: ubuntu-latest
     services:
       casper-cctl:
-        image: makesoftware/casper-cctl:v156
+        image: koxu1996/casper-cctl:2.0-rc3
         ports:
-          - 11101:11101
+          - 21101:21101
     steps:
       - uses: actions/checkout@v3
       - name: Test if CCTL is running
         run: >-
-          curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
+          curl --location 'http://127.0.0.1:21101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
       - name: Check status after 30 seconds
         run: >-
-          curl --location 'http://127.0.0.1:11101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
+          curl --location 'http://127.0.0.1:21101/rpc' --header 'Content-Type: application/json' --data '{"id": 1, "jsonrpc": "2.0", "method": "info_get_status", "params": []}'
